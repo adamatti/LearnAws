@@ -1,8 +1,9 @@
+Pet project to play with AWS services with java on local box
+
 #### Todo 
 
 * Dynamo?
 
 #### References
 
-* https://github.com/localstack/localstack
-* http://gabrielfeitosa.com/simulando-aws-com-localstack
+* [localstack docker image](https://github.com/localstack/localstack)
