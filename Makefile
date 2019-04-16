@@ -16,3 +16,11 @@ docker-remove: docker-stop
 docker-restart: docker-stop docker-start ## docker restart
 
 docker-recreate: docker-remove docker-start
+
+.PHONY: clean
+clean:
+	@rm -rf build
+
+.PHONY: test
+test:
+	@./gradlew test

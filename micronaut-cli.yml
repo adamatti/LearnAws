@@ -1,5 +1,0 @@
-profile: service
-defaultPackage: learn.aws
----
-testFramework: spock
-sourceLanguage: groovy
