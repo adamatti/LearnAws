@@ -27,6 +27,11 @@ configurations {
 }
 
 dependencies {
+    // App dependencies
+    compile group: 'software.amazon.awssdk', name: 'sqs', version: '2.5.25'
+    compile group: 'software.amazon.awssdk', name: 'auth', version: '2.5.25'
+
+    // Micronaut dependencies
     compile "io.micronaut:micronaut-http-client"
     compile "io.micronaut:micronaut-http-server-netty"
     compile "io.micronaut:micronaut-runtime-groovy"
