@@ -1,8 +1,6 @@
 package adamatti
 
-import software.amazon.awssdk.auth.credentials.AwsBasicCredentials
-import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider
-import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider
+
 import software.amazon.awssdk.regions.Region
 import software.amazon.awssdk.services.sqs.SqsClient
 import software.amazon.awssdk.services.sqs.model.*
@@ -19,10 +17,8 @@ class QueueSpec extends Specification {
         sqsClient = SqsClient.builder()
             .region(Region.US_EAST_1)
             .endpointOverride("http://localhost:4576".toURI())
-            .credentialsProvider(createCredentialProvider())
+            .credentialsProvider(TestCredentialsFactory.build())
             .build()
-
-        //sqsClient = TestUtils.getClientSQS()
     }
 
 
@@ -83,13 +79,6 @@ class QueueSpec extends Specification {
         def response = sqsClient.sendMessage(request)
         println "Send msg response: ${response}"
     }
-
-    private AwsCredentialsProvider createCredentialProvider(){
-        new StaticCredentialsProvider(
-            new AwsBasicCredentials("test","test")
-        )
-    }
-
 
     private void createQueue(String queueName){
         def createQueueRequest = CreateQueueRequest.builder().queueName(queueName).build();

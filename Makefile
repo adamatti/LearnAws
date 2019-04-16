@@ -9,3 +9,10 @@ docker-start: ## start docker dependencies
 
 docker-stop: ## stop docker containers
 	docker-compose stop -t 0
+
+docker-remove: docker-stop
+	docker-compose rm -fv
+
+docker-restart: docker-stop docker-start ## docker restart
+
+docker-recreate: docker-remove docker-start
